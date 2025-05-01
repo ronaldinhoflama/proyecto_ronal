@@ -44,58 +44,24 @@ class Tabla extends Connection {
         }
         $sql .= ");";
         return $this->connection->query($sql);
-    }    
-    // Método para insertar datos en la tabla
-    public function insertar($datos) {
-        $this->connect();  // Conectar a la base de datos
-        // Generar la consulta SQL para insertar datos
-        $campos = implode(", ", array_keys($datos));  // Nombres de los campos
-        $valores = implode(", ", array_map(function($item) {
-            return "'$item'";  // Escapar los valores
-        }, array_values($datos)));  
-        $sql = "INSERT INTO `$this->nombreTabla` ($campos) VALUES ($valores)";
-        // Ejecutar la consulta
-        return $this->connection->query($sql);  // Devolver si fue exitoso
     }
 
-    // Método para actualizar registros en la tabla
-    public function actualizar($id, $datos) {
-        $this->connect();  // Conectar a la base de datos
-        // Generar la consulta SQL para actualizar datos
-        $actualizaciones = [];
-        foreach ($datos as $campo => $valor) {
-            $actualizaciones[] = "`$campo` = '$valor'";  // Preparar cada campo para actualizar
-        }
-        $actualizacionesStr = implode(", ", $actualizaciones);
-        // Consulta SQL para actualizar la tabla
-        $sql = "UPDATE `$this->nombreTabla` SET $actualizacionesStr WHERE `$this->pkNombre` = $id";
-        // Ejecutar la consulta
-        return $this->connection->query($sql);  // Devolver si fue exitoso
-    }
-
-    // Método para eliminar registros de la tabla
-    public function eliminar($id) {
-        $this->connect();  // Conectar a la base de datos
-        // Generar la consulta SQL para eliminar registros
-        $sql = "DELETE FROM `$this->nombreTabla` WHERE `$this->pkNombre` = $id";
-        
-        // Ejecutar la consulta
-        return $this->connection->query($sql);  // Devolver si fue exitoso
-    }
-    // Obtener todos los registros de la tabla
+    // Obtener todos los registros
     public function obtenerTodos() {
-        $this->connect();  // Conectar a la base de datos
-        // Consulta SQL para obtener todos los registros
+        $this->connect();
         $sql = "SELECT * FROM `$this->nombreTabla`";
-        $result = $this->connection->query($sql);
-        // Verificar si la consulta fue exitosa
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $datos = [];
         if ($result) {
-            $datos = [];
             while ($row = $result->fetch_assoc()) {
-                $datos[] = $row;  // Guardar los resultados
+                $datos[] = $row;
             }
-            return $datos;  // Retornar los registros obtenidos
+            $stmt->close();  // Cerrar la declaración
+            return $datos;
         } else {
+            $stmt->close();  // Cerrar la declaración
             throw new Exception("No se encontraron registros.");
         }
     }

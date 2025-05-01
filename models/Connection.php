@@ -9,17 +9,22 @@ class Connection {
 
     protected function connect() {
         if ($this->connection === null) {
-            $this->connection = mysqli_connect($this->host, $this->user, $this->password, $this->db, $this->port);
-            if (!$this->connection) {
-                throw new Exception("No se pudo conectar a la base de datos.");
+            try {
+                $this->connection = @mysqli_connect($this->host, $this->user, $this->password, $this->db, $this->port);
+                if (!$this->connection) {
+                    throw new Exception("No se pudo conectar a la base de datos.");
+                }
+            } catch (Exception $e) {
+                echo "<script>window.top.location.href = '/PROYECTO_VERSION1/views/404.php';</script>";
+                exit();
             }
         }
     }
 
-    // Método público para obtener la conexión
     public function getConnection() {
         $this->connect();
         return $this->connection;
     }
 }
+
 ?>

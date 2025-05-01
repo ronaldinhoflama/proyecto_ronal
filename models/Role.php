@@ -37,8 +37,7 @@ class Role extends Connection {
             array_push($roles, $row);
         }
         return $roles;
-    }
-
+    }   
     // Obtener un rol por ID
     public function getFirst($rol_id) {
         $this->connect();

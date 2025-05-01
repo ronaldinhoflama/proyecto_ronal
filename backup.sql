@@ -42,5 +42,5 @@ CREATE TABLE usuario (
 -- Insertamos datos en 'usuario'
 INSERT INTO usuario (nombre, apellido, telefono, email, password, rol_id) VALUES
 ("R", "RODRIGUEZ", "718-17426", "r@gmail.com", "c1", 1),
-("PAUL", "FUENTES", "718-17430", "paul@mail.com", "contraseña2", 2),
+("PAUL", "FUENTES", "718-17430", "paul@mail.com", "c2", 2),
 ("ROBERTO", "GUTIERREZ", "715-74626", "roberto@mail.com", "contraseña3", 3);

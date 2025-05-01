@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 <body>
-    <h1>Lista de Roles</h1>
-    <a href="rol_create.php">Registrar nuevo rol</a>
-    <table border="1">
+    <h1 class="title">Lista de Roles</h1>
+    <div class="contenedor">
+        <a href="rol_create.php">Registrar nuevo rol</a>
+    </div>
+    <table >
         <tr>
             <th>ID</th>
             <th>Rol</th>

@@ -17,6 +17,19 @@ if (isset($_SESSION['usuario'])) {
     <title>Menú General</title>
     <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
+<script>
+    const iframe = document.querySelector('iframe[name="contenido"]');
+    iframe.addEventListener('load', () => {
+        try {
+            const title = iframe.contentDocument.title;
+            if (title.includes("Error de Conexión")) {
+                window.location.href = "../../views/404.php";
+            }
+        } catch (e) {
+            window.location.href = "../../views/404.php";
+        }
+    });
+</script>
 <body>
     <div class="contenedor">
         <!-- Barra de navegación -->

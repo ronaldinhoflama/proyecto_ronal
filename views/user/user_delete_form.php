@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="../../assets/css/styles.css">
 </head>
 <body>
-    <h1>Eliminar usuario</h1>
-    <div class="user-info">
+    <div class="contenedor create-table-container">
+        <h1 class="title">Eliminar usuario</h1>
         <p>¿Estás seguro de que deseas eliminar el siguiente usuario?</p>
         <ul>
             <li><strong>USER_ID:</strong> <?= htmlspecialchars($usuario['user_id']) ?></li>
@@ -19,11 +19,13 @@
             <li><strong>Fecha_de_ingreso:</strong> <?= htmlspecialchars($usuario['fecha_de_ingreso']) ?></li>
             <li><strong>Rol_id:</strong> <?= htmlspecialchars($usuario['email']) ?></li>
         </ul>
+        <form action="user_delete.php" method="POST">
+            <input type="hidden" name="user_id" value="<?= htmlspecialchars($usuario['user_id']) ?>">
+            <button type="submit">Eliminar</button>
+        </form>
     </div>
-    <form action="user_delete.php" method="POST">
-        <input type="hidden" name="user_id" value="<?= htmlspecialchars($usuario['user_id']) ?>">
-        <button type="submit">Eliminar</button>
+    <div class="contenedor">
         <a href="user_list.php">Cancelar</a>
-    </form>
+    </div>
 </body>
 </html>
