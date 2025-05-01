@@ -20,70 +20,12 @@ Este proyecto está desarrollado en **PHP** bajo el patrón de arquitectura **MV
 
 ## 🗂️ Estructura del Proyecto (MVC)
 
-PROYECTO_VERSION1/
-│
-├── assets/
-│   ├── config/
-│   │   └── bloqueados.json
-│   ├── css/
-│   │   └── styles.css
-│   ├── images/
-│   │   ├── DIAGRAMA_ENTIDAD_RELACION.png
-│   │   ├── TABLA.png
-│   │   └── inconR.jpeg
-│   └── js/
-│       ├── create_table.js
-│       └── table_list.js
-│
-├── controllers/
-│   ├── rol/
-│   │   ├── rol_create.php
-│   │   ├── rol_delete.php
-│   │   ├── rol_list.php
-│   │   └── rol_update.php
-│   ├── table/
-│   │   ├── bloquear_tablas.php
-│   │   ├── tabla_create.php
-│   │   └── tabla_list.php
-│   ├── user/
-│   │   ├── user_create.php
-│   │   ├── user_delete.php
-│   │   ├── user_list.php
-│   │   └── user_update.php
-│   ├── login_close.php
-│   └── loginV.php
-│
-├── models/
-│   ├── Connection.php
-│   ├── Role.php
-│   ├── Table.php
-│   └── User.php
-│
-├── views/
-│   ├── menu/
-│   │   ├── menu_general.php
-│   │   └── menu_usuario.php
-│   ├── rol/
-│   │   ├── rol_create_form.php
-│   │   ├── rol_delete_form.php
-│   │   ├── rol_update_form.php
-│   │   └── role_lis.php
-│   ├── tabla/
-│   │   ├── bloquear_tablas.php
-│   │   ├── create_table.php
-│   │   ├── search_table.php
-│   │   └── table_list_form.php
-│   ├── user/
-│   │   ├── user_create_form.php
-│   │   ├── user_delete_form.php
-│   │   ├── user_list_form.php
-│   │   └── user_update_form.php
-│   ├── login_form.php
-│   └── 404.php
-│
-├── backup.sql
-├── index.php
-└── README.md
+![PART1](assets/images/PART1.png)
+![PART2](assets/images/PART2.png)
+![PART3](assets/images/PART3.png)
+![PART4](assets/images/PART4.png)
+![PART5](assets/images/PART5.png)
+
 
 ---
 
